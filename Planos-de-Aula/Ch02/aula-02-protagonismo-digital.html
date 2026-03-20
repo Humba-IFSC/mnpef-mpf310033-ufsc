@@ -128,8 +128,11 @@
                 </div>
                 <div class="hidden md:flex items-center space-x-6 text-sm font-medium">
                     <a href="#fundamentos" class="hover:text-brand-100 transition">Fundamentos</a>
-                    <a href="#roteiro" class="hover:text-brand-100 transition">Roteiro da Aula</a>
-                    <a href="#ferramentas" class="hover:text-brand-100 transition">Ferramentas</a>
+                    <a href="#roteiro" class="text-white hover:text-brand-100 transition">Roteiro Interativo</a>
+                    <a href="#ferramentas" class="hover:text-brand-100 transition">Ferramentas Análise</a>
+                    <a href="../../Slides/Ch02-Protagonismo_Digital_Ativo.pdf" target="_blank" class="bg-amber-500 hover:bg-amber-400 text-slate-900 border-0 px-4 py-2 rounded-md font-bold transition flex items-center shadow-sm">
+                        <span class="mr-2">📄</span> Ver Slides Completos
+                    </a>
                     <a href="#avaliacao" class="hover:text-brand-100 transition">Avaliação & Tarefas</a>
                 </div>
             </div>
@@ -434,7 +437,7 @@
                                 </a>
                                 <a href="https://mentimeter.com" target="_blank" class="flex flex-col items-center p-4 bg-white border border-slate-200 rounded-lg hover:border-amber-500 hover:shadow-md transition-all text-center">
                                     <span class="font-bold text-slate-800">Mentimeter</span>
-                                    <span class="text-xs text-slate-500 mt-1">Nuvens \& Enquetes</span>
+                                    <span class="text-xs text-slate-500 mt-1">Nuvens & Enquetes</span>
                                 </a>
                                 <a href="https://plickers.com" target="_blank" class="flex flex-col items-center p-4 bg-white border border-slate-200 rounded-lg hover:border-amber-500 hover:shadow-md transition-all text-center">
                                     <span class="font-bold text-slate-800">Plickers</span>
@@ -451,14 +454,24 @@
                     tagColor: "bg-brand-100 text-brand-700",
                     description: "Os professores-estudantes alimentam o IA com artigos sobre Referenciais Inerciais, Forças Fictícias e Balística Moderna para criar Guias de Aprendizagem desmistificadores.",
                     bullets: [
-                        "<strong>Flashcards:</strong> Distinguir forças reais (gravitacional) de efeitos puramente inerciais (força centrífuga/Coriolis).",
-                        "<strong>Quizzes:</strong> Testar o entendimento de previsão (ex: se um piloto solta uma bomba sem considerar Coriolis, onde ela cai?).",
+                        "<strong>Slides:</strong> Apresentação dos slides da aula para contextualização teórica.",
                         "<strong>Mapas Mentais:</strong> Visualizar a demarcação que a 1ª Lei de Newton impõe entre referenciais inerciais e não-inerciais."
                     ],
                     extraHtml: `
                         <div class="bg-brand-50 border-l-4 border-brand-500 p-4 rounded-r-lg mt-5">
-                            <h4 class="font-bold text-brand-800 mb-2">Desafio da Oficina</h4>
-                            <p class="text-sm text-brand-700 mb-0">Alimente o NotebookLM com um texto sobre a física balística em conflitos modernos (influência da gravidade, ar e Coriolis). Peça à IA 1 Mapa Mental categorizando o uso da 1ª Lei, 3 Flashcards e 2 Questões contraintuitivas de múltipla escolha.</p>
+                            <h4 class="font-bold text-brand-800 mb-2">Quiz da IA</h4>
+                            <p class="text-sm text-brand-700 mb-0">Comande o NotebookLM: <em>Crie 3 questões desafiadoras de múltipla escolha que expliquem por que a 1ª Lei é estritamente necessária para validar a 2ª Lei, usando o conceito de Referencial de Copérnico (p. 199).</em></p>
+                        </div>
+                        <div class="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-3">
+                            <a href="../../Mapas-Mentais/Aula02-map.png" target="_blank" class="flex flex-col items-center justify-center p-3 bg-white border border-brand-200 rounded-lg hover:border-brand-500 hover:shadow-md transition-all text-sm font-semibold text-brand-700">
+                                <span class="text-xl mb-1">🧠</span> Mapa Mental
+                            </a>
+                            <a href="#" target="_blank" class="flex flex-col items-center justify-center p-3 bg-white border border-brand-200 rounded-lg hover:border-brand-500 hover:shadow-md transition-all text-sm font-semibold text-brand-700">
+                                <span class="text-xl mb-1">🗂️</span> Flashcards (PDF)
+                            </a>
+                            <a href="#" target="_blank" class="flex flex-col items-center justify-center p-3 bg-white border border-brand-200 rounded-lg hover:border-brand-500 hover:shadow-md transition-all text-sm font-semibold text-brand-700">
+                                <span class="text-xl mb-1">📝</span> Quizzes
+                            </a>
                         </div>
                     `
                 },
