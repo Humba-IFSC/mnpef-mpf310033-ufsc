@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glossário: Aula 02 - Inércia e Referenciais</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; }
+        .term-card {
+            transition: all 0.2s ease-in-out;
+        }
+        .term-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            border-left-color: #4f46e5;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col items-center py-10 px-4">
+
+    <!-- Header -->
+    <header class="w-full max-w-4xl mb-8 flex flex-col md:flex-row justify-between items-center bg-white p-6 rounded-2xl shadow-sm border border-slate-200 gap-4">
+        <div>
+            <span class="bg-emerald-100 text-emerald-800 text-xs font-bold px-3 py-1 rounded-full mb-2 inline-block">&#128214; Guia de Consulta Rápida</span>
+            <h1 class="text-2xl font-black text-slate-800">Glossário da Aula 02</h1>
+            <p class="text-sm text-slate-500 mt-1">Conceitos fundamentais de balística, metodologias ativas e leis de Newton discutidos neste capítulo.</p>
+        </div>
+        <div class="flex gap-2">
+            <a href="aula-02-protagonismo-digital.html" class="flex items-center gap-2 px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg text-sm font-bold transition-all shadow-sm">
+                <span>&#8592;</span> Voltar ao Painel da Turma
+            </a>
+        </div>
+    </header>
+
+    <!-- Content -->
+    <main class="w-full max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-6 pb-12">
+        
+        <!-- FÍSICA -->
+        <h2 class="col-span-full mt-4 text-xl font-bold text-slate-800 border-b-2 border-slate-200 pb-2 flex items-center gap-2">
+            <span>🚀</span> Física Clássica e Balística
+        </h2>
+
+        <div class="term-card bg-white p-5 rounded-xl border-l-4 border-indigo-300 shadow-sm">
+            <h3 class="font-bold text-indigo-900 text-lg mb-2">Referencial Inercial</h3>
+            <p class="text-slate-600 text-sm leading-relaxed">Qualquer sistema de coordenadas que não possui aceleração (repouso ou movimento retilíneo uniforme). É o ambiente onde a Primeira e a Segunda Lei de Newton são rigorosamente válidas.</p>
+        </div>
+
+        <div class="term-card bg-white p-5 rounded-xl border-l-4 border-rose-300 shadow-sm">
+            <h3 class="font-bold text-indigo-900 text-lg mb-2">Referencial Não-Inercial</h3>
+            <p class="text-slate-600 text-sm leading-relaxed">Sistema que possui aceleração (como um ônibus freando, ou a superfície da Terra girando). Exige a introdução de 'Forças Fictícias' para que a mecânica de Newton continue a fazer sentido matemático.</p>
+        </div>
+
+        <div class="term-card bg-white p-5 rounded-xl border-l-4 border-indigo-300 shadow-sm">
+            <h3 class="font-bold text-indigo-900 text-lg mb-2">Força de Coriolis</h3>
+            <p class="text-slate-600 text-sm leading-relaxed">Força inercial percebida por observadores dentro de um referencial em rotação. Na balística terrestre, desvia projéteis de longa distância (mísseis) para a direita no hemisfério Norte e para a esquerda no Sul.</p>
+        </div>
+
+        <div class="term-card bg-white p-5 rounded-xl border-l-4 border-indigo-300 shadow-sm">
+            <h3 class="font-bold text-indigo-900 text-lg mb-2">Força Centrífuga</h3>
+            <p class="text-slate-600 text-sm leading-relaxed">Efeito inercial de afastamento rotacional. Na Terra, ela 'alivia' ligeiramente a gravidade na região do Equador em comparação aos Polos, influenciando o peso das ogivas ao longo da latitude.</p>
+        </div>
+
+        <div class="term-card bg-white p-5 rounded-xl border-l-4 border-indigo-300 shadow-sm">
+            <h3 class="font-bold text-indigo-900 text-lg mb-2">Teoria do Impetus</h3>
+            <p class="text-slate-600 text-sm leading-relaxed">Equívoco conceitual pré-Galileu/Newton onde julgava-se que os corpos carregavam uma 'força motriz' internalizada que os empurrava para frente até se desgastar. Principal barreira cognitiva dos alunos hoje.</p>
+        </div>
+        
+        <div class="term-card bg-white p-5 rounded-xl border-l-4 border-indigo-300 shadow-sm">
+            <h3 class="font-bold text-indigo-900 text-lg mb-2">Arrasto Aerodinâmico</h3>
+            <p class="text-slate-600 text-sm leading-relaxed">Força dissipativa exercida pelo ar contra o projétil. Divide-se em atrito de superfície, resistência de base (baixa pressão atrás do míssil) e onda de choque. É proporcional ao quadrado da velocidade.</p>
+        </div>
+
+        <div class="term-card bg-white p-5 rounded-xl border-l-4 border-indigo-300 shadow-sm">
+            <h3 class="font-bold text-indigo-900 text-lg mb-2">Deriva Giroscópica (Efeito Magnus)</h3>
+            <p class="text-slate-600 text-sm leading-relaxed">Desvio lateral não previsto resultante do atrito da rotação (giro) do projétil — implementado para dar estabilidade — interconagindo com a resistência do ar.</p>
+        </div>
+
+        <!-- METODOLOGIAS -->
+        <h2 class="col-span-full mt-6 text-xl font-bold text-slate-800 border-b-2 border-slate-200 pb-2 flex items-center gap-2">
+            <span>🎓</span> Metodologias & Protagonismo
+        </h2>
+
+        <div class="term-card bg-white p-5 rounded-xl border-l-4 border-emerald-300 shadow-sm">
+            <h3 class="font-bold text-emerald-900 text-lg mb-2">Peer Instruction (Instrução por Pares)</h3>
+            <p class="text-slate-600 text-sm leading-relaxed">Metodologia introduzida por Eric Mazur (Harvard). O aluno debate conceitualmente uma questão contraintuitiva com o colega ao lado (Reflexão -> Debate -> Votação) gerando profunda ressignificação cognitiva.</p>
+        </div>
+
+        <div class="term-card bg-white p-5 rounded-xl border-l-4 border-emerald-300 shadow-sm">
+            <h3 class="font-bold text-emerald-900 text-lg mb-2">ConcepTest</h3>
+            <p class="text-slate-600 text-sm leading-relaxed">Testes conceituais rápidos focados em uma única ideia central estrutural (ex: 'A Inércia falha no ônibus?'), elaborados para provocar o conflito de ideias (Impetus vs Inércia).</p>
+        </div>
+
+        <div class="term-card bg-white p-5 rounded-xl border-l-4 border-emerald-300 shadow-sm">
+            <h3 class="font-bold text-emerald-900 text-lg mb-2">Plickers (Low-Tech Formative Data)</h3>
+            <p class="text-slate-600 text-sm leading-relaxed">Abordagem de democratização tecnológica. Captura dados de avaliação on-time através do escaneamento de cartões de papel (QR Codes de baixa resolução), sem exigir infraestrutura dos alunos.</p>
+        </div>
+
+    </main>
+</body>
+</html>
