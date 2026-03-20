@@ -1,0 +1,16 @@
+# Ignorar tudo por padrão
+*
+!*/
+
+# Bloquear pastas que contêm HTMLs irrelevantes (Ambientes Python, etc)
+curso_modelagem/
+.gemini/
+__pycache__/
+
+# Permitir explicitamente os arquivos desejados (HTML e PDF)
+!*.html
+!*.pdf
+
+# Permitir arquivos cruciais da raiz
+!README.md
+!.gitignore
