@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flashcards: Inércia e Balística</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; }
+        
+        /* 3D Flip Animation CSS */
+        .perspective-1000 { perspective: 1000px; }
+        .transform-style-3d { transform-style: preserve-3d; }
+        .backface-hidden { backface-visibility: hidden; }
+        .rotate-y-180 { transform: rotateY(180deg); }
+        .transition-transform { transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1); }
+        
+        .flashcard.flipped .flashcard-inner {
+            transform: rotateY(180deg);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col items-center py-10 px-4">
+
+    <!-- Header -->
+    <header class="w-full max-w-4xl mb-8 flex flex-col md:flex-row justify-between items-center bg-white p-6 rounded-2xl shadow-sm border border-slate-200 gap-4">
+        <div>
+            <span class="bg-indigo-100 text-indigo-800 text-xs font-bold px-3 py-1 rounded-full mb-2 inline-block">Curadoria NotebookLM</span>
+            <h1 class="text-2xl font-black text-slate-800">Forças Fictícias e Balística</h1>
+            <p class="text-sm text-slate-500 mt-1">Navegue pelas 20 perguntas geradas pela IA e clique para ver a resposta. Teste seu domínio conceitual!</p>
+        </div>
+        <div class="flex gap-2">
+            <a href="aula-02-protagonismo-digital.html" class="flex items-center gap-2 px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg text-sm font-bold transition-all">
+                <span>&#8592;</span> Voltar ao Painel
+            </a>
+            <button id="btn-shuffle" class="flex items-center gap-2 px-4 py-2 bg-brand-600 hover:bg-brand-700 text-white rounded-lg text-sm font-bold transition-all" style="background-color: #4f46e5;">
+                <span>&#128256;</span> Embaralhar Cartas
+            </button>
+        </div>
+    </header>
+
+    <!-- Grid de Flashcards -->
+    <div id="flashcards-container" class="w-full max-w-5xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 pb-12">
+        <!-- Flashcards serão gerados aqui pelo JS -->
+    </div>
+
+    <!-- Script de Geração -->
+    <script>
+        const cardData = [
+            {q: "O movimento balístico de um míssil de longo alcance pode ser descrito como uma parábola idealizada de Galileu?", a: "Não, pois é afetado por forças reais, fictícias e pela curvatura da Terra."},
+            {q: "Por que a aceleração da gravidade (g) não pode ser tratada como constante em mísseis de longo alcance?", a: "Porque ela varia com a altitude e é influenciada pela força centrífuga da rotação terrestre."},
+            {q: "Qual lei física fundamenta a força de propulsão (empuxo) gerada pela expulsão de gases do míssil?", a: "A Terceira Lei de Newton (Ação e Reação)."},
+            {q: "Em regimes de velocidade transônicos e supersônicos, a força de arrasto é proporcional a qual fator da velocidade?", a: "Ao quadrado da velocidade (v²)."},
+            {q: "Quais são as três componentes que dividem a força de arrasto aerodinâmico?", a: "Atrito de superfície, resistência de base e resistência de onda de choque."},
+            {q: "Como é gerada a força de sustentação (lift) no corpo ou aletas de um míssil?", a: "Pela diferença de pressão quando o ar escoa com velocidades distintas nas superfícies do míssil."},
+            {q: "Qual o efeito das correntes de vento transversais na trajetória de um projétil?", a: "Elas causam desvios laterais na trajetória original do míssil."},
+            {q: "Por que as forças de Coriolis e centrífuga são denominadas forças 'fictícias' ou inerciais?", a: "Porque decorrem do movimento do referencial em rotação (a Terra) e não de interações diretas."},
+            {q: "A Força de Coriolis causa qual tipo de alteração no voo de um míssil de longo alcance?", a: "Uma deriva ou deflexão lateral da trajetória pretendida."},
+            {q: "Para qual direção a Força de Coriolis desvia um míssil disparado no Hemisfério Norte?", a: "Para a direita do seu ponto de mira."},
+            {q: "Para qual direção a Força de Coriolis desvia um míssil disparado no Hemisfério Sul?", a: "Para a esquerda do seu ponto de mira."},
+            {q: "Como a força centrífuga da Terra afeta a aceleração da queda livre no equador em comparação aos polos?", a: "Ela alivia o efeito gravitacional, tornando a aceleração da queda livre menor no equador."},
+            {q: "Qual fator geométrico diferencia o lançamento de um míssil de longo alcance do lançamento de um objeto em sala de aula?", a: "A curvatura da Terra, que deve ser considerada na modelagem do míssil."},
+            {q: "O que define a deriva giroscópica, também conhecida como Efeito Magnus?", a: "É o desvio lateral causado pela interação da rotação do míssil com a pressão do ar e a gravidade."},
+            {q: "Qual a finalidade de imprimir um movimento de rotação (giro) ao míssil em torno de seu próprio eixo?", a: "Garantir a estabilidade do voo e evitar que o projétil tombe durante o percurso."},
+            {q: "O fenômeno de 'Precessão' ocorre quando o giro do míssil interage com o ar e a gravidade. Qual sua consequência?", a: "Causa desvios laterais acumulados na trajetória."},
+            {q: "Em qual fase do voo a força de propulsão atua de forma predominante?", a: "Na fase ativa (fase de subida) do míssil."},
+            {q: "Qual componente do arrasto é gerada especificamente pela zona de baixa pressão situada atrás do míssil?", a: "Resistência de base."},
+            {q: "Por que o modelo de parábola de Galileu é considerado insuficiente para a balística de mísseis modernos?", a: "Porque ele assume uma Terra plana e ignora a rotação do planeta e a resistência do ar."},
+            {q: "O arrasto aerodinâmico atua em qual sentido em relação ao movimento do míssil?", a: "No sentido oposto ao movimento, dissipando sua energia cinética."}
+        ];
+
+        const container = document.getElementById('flashcards-container');
+
+        function renderCards(cards) {
+            container.innerHTML = '';
+            cards.forEach((item, index) => {
+                const card = document.createElement('div');
+                card.className = "flashcard perspective-1000 w-full h-64 group cursor-pointer";
+                card.onclick = () => card.classList.toggle('flipped');
+
+                card.innerHTML = `
+                    <div class="flashcard-inner relative w-full h-full text-center transition-transform duration-500 transform-style-3d shadow-md hover:shadow-lg rounded-xl">
+                        <!-- Frente da Carta (Pergunta) -->
+                        <div class="absolute w-full h-full backface-hidden bg-white border border-indigo-100 rounded-xl p-6 flex flex-col justify-center items-center">
+                            <span class="absolute top-4 left-4 text-xs font-bold text-indigo-300">#${index + 1}</span>
+                            <div class="text-3xl mb-3">🤔</div>
+                            <h3 class="text-slate-800 font-semibold text-lg leading-snug">${item.q}</h3>
+                            <p class="absolute bottom-4 text-xs text-slate-400">Clique para revelar</p>
+                        </div>
+                        
+                        <!-- Verso da Carta (Resposta) -->
+                        <div class="absolute w-full h-full backface-hidden bg-indigo-600 text-white rounded-xl p-6 flex flex-col justify-center items-center rotate-y-180">
+                            <div class="text-3xl mb-3">💡</div>
+                            <p class="font-medium text-[1.05rem] leading-relaxed">${item.a}</p>
+                            <p class="absolute bottom-4 text-xs text-indigo-200">Clique para voltar</p>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        // Render Inicial
+        renderCards(cardData);
+
+        // Ação de Embaralhar
+        document.getElementById('btn-shuffle').addEventListener('click', () => {
+            const shuffled = [...cardData].sort(() => Math.random() - 0.5);
+            renderCards(shuffled);
+        });
+    </script>
+</body>
+</html>
