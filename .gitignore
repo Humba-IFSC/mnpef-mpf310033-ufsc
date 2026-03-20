@@ -2,14 +2,17 @@
 *
 !*/
 
-# Bloquear pastas que contêm HTMLs irrelevantes (Ambientes Python, etc)
-curso_modelagem/
-.gemini/
-__pycache__/
-
 # Permitir explicitamente os arquivos desejados (HTML e PDF)
 !*.html
 !*.pdf
+
+# BLOQUEIO ABSOLUTO de pastas que contêm PDFs temporários ou HTMLs de sistema
+# Colocando no final para sobrescrever o !*.pdf
+curso_modelagem/**
+.gemini/**
+__pycache__/**
+Latex/**
+Limpar_MarcaDagua/**
 
 # Permitir arquivos cruciais da raiz
 !README.md
